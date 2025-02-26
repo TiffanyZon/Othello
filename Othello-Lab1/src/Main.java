@@ -1,33 +1,24 @@
+import controller.Controller;
 
 import javax.swing.*;
 
-import java.awt.*;
-
 /**
  * KRAV
- * - Bräda storlek 4x4
- * - Inital state är tom
- * - Alla drag tillåtna, utom en tagen bricka!
- * - Spelet är slut när alla positioner är täckta.
+ *  - Bräda 4x4
+ *   - Alla drag tillåtna utom på upptagna platser + platser utanför bräda
+ *  - Init tillstånd för bräder är tom
+ *  - Spelet är slut när brädan är fylld.
  * */
 
 
 public class Main {
-
-     public static void main(String[] args){
-
-         JFrame frame = new JFrame();
-         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         frame.setResizable(false);
-
-         frame.setMinimumSize(new Dimension(400,400));
-
-         Board board = new Board();
-         frame.add(board);
-
-         frame.pack();
-         frame.setLocationRelativeTo(null);
-         frame.setVisible(true);
-
+     public static void main(String[] args) {
+          try {
+              UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+          } catch (Exception e) {
+               e.printStackTrace();
+          }
+          new Controller();
      }
+
 }
